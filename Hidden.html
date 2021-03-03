@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Hidden file</title>
-</head>
-
+ <head>Hidden file</head>
 <body>
 
 <h2>Hidden things by Vipparthi Roopin</h2>
-<form>
-    <label for="form1_credentials">Enter the secret word</label>
-    <input type ="password" id="form1_credentials" name="form1_credentials" min=10 max=50 step=2 value="Secret"> <br>
 
-    <label for="form1_guess">Enter a guess</label>
-    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+<form>
+    <label for="secret_word">Enter the secret word</label>
+    <input type ="password" id="secret_word" name="secret_word" value="Secret"> <br>
+
+    <label for="guess_word">Enter a guess</label>
+    <input type ="text" id="guess_word" name="guess_word" autofocus> <br>
 
     <input type="button" onclick="processGuess()" value="Check the guess">
 </form>
 
 
-<p id="result">The results are displayed</p>
+<p id="count">This correct count will be displayed here</p>
 
-<script> 
-var correct = 0;
-var wrong = 0;
-function processGuess(){
-    console.log("Getting form values")
-    password = document.getElementById("form1_credentials").value
-    guess = document.getElementById("form1_guess").value
-    out = document.getElementById("result")
-    if(password==guess){
-        correct+=1;
-        alert("Congratualtions")
-        out.innerHTML = "Correct count is:"+correct
-    } else {
-        wrong+=1;
-        alert("Sorry")
-        out.innerHTML = "Wrong count is:"+wrong
-    }
-}
-</script>
-<div class = "container">
-    <img id="myPlant" src="Velvet.jpg" alt="Check Internet Connection" width=200 height=200 onclick="rotateImage()">
+<div class="container">
+    <img id="plantImage" src="velvet.jpg" alt="velvet" width="200" height="200" onclick="rotateImage()">
 </div>
-<script>
-    var currentImage = 0;
+
+<script>   
+ var correct = 0;
+ var wrong = 0;  
+
+ function processGuess(){
+    secretword = document.getElementById("secret_word").value
+    guessword = document.getElementById("guess_word").value
+
+    if(secretword==guessword){
+        correct++
+        confirm("Congratulations")
+    }
+        else{
+        wrong++
+        confirm("Sorry")
+    }
+
+    out = document.getElementById("count")
+    out.innerHTML = "Correct Attempts: " + correct +"     Wrong Attempts: " + wrong
+
+}
+
+    var currentImage=0;
+    
     function rotateImage(){
     switch(currentImage){
-        case 0:
-            document.getElementById("myPlant").src="Velvet.jpg"
-            currentImage++;
-            alert("The value of curentImage is:"+currentImage)
-            break;
-        case 1:
-            document.getElementById("myPlant").src="Inula.jpg"
-            currentImage++;
-            alert("The value of curentImage is:"+currentImage)
-            break;
-        case 2:
-            document.getElementById("myPlant").src="Packera.jpg"
-            currentImage=0;
-            alert("The value of curentImage is:"+currentImage)
-            break;
-    
-}
+            case 0: 
+                currentImage++;
+                document.getElementById("plantImage").src = "velvet.jpg";
+                break;
+            case 1:
+                currentImage++;
+                document.getElementById("plantImage").src = "Inula.jpg";
+                break;
+            case 2:
+                currentImage=0;
+                document.getElementById("plantImage").src = "Packera.jpg";
+                break;
+    }          
+        }
 </script>
-
 </body>
 </html> 
