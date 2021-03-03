@@ -48,24 +48,20 @@ function processGuess(){
     switch(currentImage){
         case 0:
             document.getElementById("myPlant").src="Velvet.jpg"
-            currentImage+=1
+            currentImage++;
             alert("The value of curentImage is:"+currentImage)
             break;
         case 1:
             document.getElementById("myPlant").src="Inula.jpg"
-            currentImage+=1
+            currentImage++;
             alert("The value of curentImage is:"+currentImage)
             break;
         case 2:
             document.getElementById("myPlant").src="Packera.jpg"
-            currentImage+=1
+            currentImage=0;
             alert("The value of curentImage is:"+currentImage)
             break;
-        default:
-            currentImage = 0;
-            document.getElementById("myPlant").src="Packera.jpg"
-            alert("The value of curentImage is:"+currentImage)
-    }
+    
 }
 </script>
 
